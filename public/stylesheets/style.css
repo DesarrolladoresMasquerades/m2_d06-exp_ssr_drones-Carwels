@@ -4,5 +4,16 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #f12323;
+  cursor: pointer;
+}
+
+h2 {
+  padding: 5px;
+  font-size: 30px;
+  text-align:justify;
+}
+
+#center {
+  text-align: justify;
 }

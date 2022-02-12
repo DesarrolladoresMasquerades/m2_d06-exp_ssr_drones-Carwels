@@ -1,9 +1,7 @@
 // Iteration #1
 const mongoose = require("mongoose");
-require("../db/index");
 const Drone = require("../models/Drone.model");
-
-require("dotenv").config();
+require("../db/index");
 
 const drones = [
   {
@@ -23,10 +21,13 @@ const drones = [
   },
 ];
 
-Drone.create(drones)
-  .then((result) => {
-    return console.log(result.length);
-  })
-  .catch((err) => console.log(err));
+Drone.deleteMany()
+.then(()=>{
 
- mongoose.connection.close()
+Drone.create(drones)
+.then((dronesObject)=>{
+    console.log(`${dronesObject.length} drones have added to the database`)
+    mongoose.connection.close()
+})
+})
+.catch(err=>console.log(`Error: ${err}`))
